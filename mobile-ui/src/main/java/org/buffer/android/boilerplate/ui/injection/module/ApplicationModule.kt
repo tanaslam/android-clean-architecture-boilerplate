@@ -81,6 +81,6 @@ open class ApplicationModule {
     @Provides
     @PerApplication
     internal fun provideBufferooService(): BufferooService {
-        return BufferooServiceFactory.makeBuffeoorService(BuildConfig.DEBUG)
+        return BufferooServiceFactory.createBuffeoorService(BuildConfig.DEBUG)
     }
 }

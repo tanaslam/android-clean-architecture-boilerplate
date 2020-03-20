@@ -1,10 +1,10 @@
 package org.buffer.android.boilerplate.ui.browse
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.AndroidInjection
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_browse.*
 import org.buffer.android.boilerplate.presentation.browse.BrowseBufferoosContract
 import org.buffer.android.boilerplate.presentation.model.BufferooView
@@ -12,7 +12,7 @@ import org.buffer.android.boilerplate.ui.R
 import org.buffer.android.boilerplate.ui.mapper.BufferooMapper
 import javax.inject.Inject
 
-class BrowseActivity: AppCompatActivity(), BrowseBufferoosContract.View {
+class BrowseActivity: DaggerAppCompatActivity(), BrowseBufferoosContract.View {
 
     @Inject lateinit var onboardingPresenter: BrowseBufferoosContract.Presenter
     @Inject lateinit var browseAdapter: BrowseAdapter

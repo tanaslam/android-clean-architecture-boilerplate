@@ -1,38 +1,30 @@
 package org.buffer.android.boilerplate.ui.test
 
-import android.app.Activity
-import android.app.Application
-import android.support.test.InstrumentationRegistry
+import androidx.test.platform.app.InstrumentationRegistry
 import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.DaggerApplication
 import org.buffer.android.boilerplate.ui.injection.component.DaggerTestApplicationComponent
 import org.buffer.android.boilerplate.ui.injection.component.TestApplicationComponent
-import javax.inject.Inject
 
-class TestApplication: Application(), HasActivityInjector {
-
-    @Inject lateinit var injector: DispatchingAndroidInjector<Activity>
+class TestApplication : DaggerApplication() {
 
     private lateinit var appComponent: TestApplicationComponent
 
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        appComponent = DaggerTestApplicationComponent.builder().application(this).build()
+        return appComponent
+    }
+
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerTestApplicationComponent.builder().application(this).build()
-        appComponent.inject(this)
     }
 
     companion object {
 
         fun appComponent(): TestApplicationComponent {
-            return (InstrumentationRegistry.getTargetContext().applicationContext as TestApplication).
-                    appComponent
+            return (InstrumentationRegistry.getTargetContext().applicationContext as TestApplication).appComponent
         }
 
-    }
-
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return injector
     }
 
 }
