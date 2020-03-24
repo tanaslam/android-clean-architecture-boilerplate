@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Clean Arch Boilerplate</string>
+    <string name="app_name">Corona Watch</string>
+    <string name="header_state">State</string>
+    <string name="header_country">Country</string>
+    <string name="header_confirmed">Confirmed</string>
+    <string name="header_deaths">Deaths</string>
+    <string name="header_recover">Recovered</string>
+    <string name="header_cc">CC</string>
 </resources>

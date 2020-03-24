@@ -40,7 +40,9 @@ ext {
     domainDependencies = [
             rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             rxJava2 : "io.reactivex.rxjava2:rxjava:${rxJava2Version}",
-            kotlin  : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+            kotlin  : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            javaxAnnotation   : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject       : "javax.inject:javax.inject:${javaxInjectVersion}",
     ]
 
     domainTestDependencies = [

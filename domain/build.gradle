@@ -13,6 +13,8 @@ dependencies {
     def domainDependencies = rootProject.ext.domainDependencies
     def domainTestDependencies = rootProject.ext.domainTestDependencies
 
+    implementation domainDependencies.javaxAnnotation
+    implementation domainDependencies.javaxInject
     implementation domainDependencies.rxKotlin
     implementation domainDependencies.rxJava2
     implementation domainDependencies.kotlin
